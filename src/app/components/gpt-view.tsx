@@ -36,9 +36,15 @@ export default function GPTView({}: Props) {
             onChange={(e) => setPrompt(e.currentTarget.value)}
           />
           <div className="w-full flex justify-end py-2">
-            <Button onClick={handlePromptRequest}>
-              <Send size={15} className="mr-2" /> Send
-            </Button>
+            {prompt.length > 0 ? (
+              <Button onClick={handlePromptRequest}>
+                <Send size={15} className="mr-2" /> Send
+              </Button>
+            ) : (
+              <Button onClick={handlePromptRequest} disabled>
+                <Send size={15} className="mr-2" /> Send
+              </Button>
+            )}
           </div>
         </CardHeader>
         <CardContent className="flex justify-center items-center p-6">
