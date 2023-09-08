@@ -49,7 +49,7 @@ export default function GPTView({}: Props) {
         </CardHeader>
         <CardContent className="flex justify-center items-center p-6">
           {loading ? (
-            <Loader2 size={22} />
+            <Loader2 size={28} className="animate-spin"/>
           ) : (
             <div className="flex justify-start w-full">
               {response.length > 0 && (
@@ -58,7 +58,7 @@ export default function GPTView({}: Props) {
                     Nutrition Facts
                   </h1>
                   <div className="text-left">
-                    {response.split("-").map((item, index) => {
+                    {response.split("\n").map((item, index) => {
                       return (
                         <p key={index} className="py-1 text-[14px]">
                           {item}
